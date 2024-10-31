@@ -42,8 +42,7 @@ vim.keymap.set("v", "<C-n>", "<C-d>")
 require("miconfignvim")
 require("miconfignvim.lazy")
 
--- vim.cmd("colorscheme catppuccin-mocha")
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme tokyonight-moon")
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight LineNr guibg=NONE")
 vim.cmd("highlight SignColumn guibg=NONE")
@@ -61,4 +60,3 @@ vim.cmd("highlight VertSplit guibg=NONE")
 -- -- Cambia el color de la barra de estado
 -- vim.cmd("highlight StatusLine guifg=#ffffff guibg=#1b1f32")
 -- vim.cmd("highlight StatusLineNC guifg=#888888 guibg=#1b1f32")
---
