@@ -49,14 +49,3 @@ vim.cmd("highlight SignColumn guibg=NONE")
 vim.cmd("highlight StatusLine guibg=NONE")
 vim.cmd("highlight VertSplit guibg=NONE")
 
-
--- vim.cmd("highlight Normal guibg=#1b1f32")
--- vim.cmd("highlight LineNr guibg=#1b1f32")
--- vim.cmd("highlight SignColumn guibg=#1b1f32")
---
--- -- Cambia el color de la línea de comandos
--- vim.cmd("highlight Cmdline guifg=#ffffff guibg=#1b1f32")
---
--- -- Cambia el color de la barra de estado
--- vim.cmd("highlight StatusLine guifg=#ffffff guibg=#1b1f32")
--- vim.cmd("highlight StatusLineNC guifg=#888888 guibg=#1b1f32")

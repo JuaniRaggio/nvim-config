@@ -26,5 +26,5 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 
-vim.opt.guicursor = "n-v-c-i:underline"
+vim.opt.guicursor = "n-v-c-i:block"
 

@@ -1,3 +1,4 @@
+-- Keymaps
 vim.keymap.set("n", "<leader>ts", ":Neotree filesystem reveal left toggle<CR>")
 vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
@@ -41,3 +42,4 @@ end)
 vim.keymap.set("n", "<C-S-N>", function()
     harpoon:list():next()
 end)
+
