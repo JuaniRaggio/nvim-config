@@ -15,7 +15,6 @@ return {
             hi_parameter = "Search",
         }),
 
-
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -40,6 +39,17 @@ return {
                         hint_enable = true,
                     }, bufnr)
                 end,
+            })
+            -- Pyright para Python
+            lspconfig.pyright.setup({
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            })
+
+            -- jdtls para Java
+            lspconfig.jdtls.setup({
+                cmd = { 'jdtls' },
+                root_dir = lspconfig.util.root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml'),
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
             })
         end,
     },
