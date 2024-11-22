@@ -32,7 +32,7 @@ vim.keymap.set("n", "d", function()
     end
 end, { expr = true })
 
-vim.api.nvim_set_keymap("n", "<leader>h", ":terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", ":belowright 10split | terminal<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
