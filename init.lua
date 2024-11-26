@@ -36,8 +36,11 @@ vim.api.nvim_set_keymap("n", "<leader>h", ":belowright 10split | terminal<CR>", 
 
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
-vim.keymap.set("n", "<C-n>", "<C-d>")
-vim.keymap.set("v", "<C-n>", "<C-d>")
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
+vim.keymap.set("v", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
+
+vim.keymap.set("n", "<C-n>", "<C-d>zz", {noremap = true, silent = true})
+vim.keymap.set("v", "<C-n>", "<C-d>zz", {noremap = true, silent = true})
 
 require("miconfignvim")
 require("miconfignvim.lazy")
