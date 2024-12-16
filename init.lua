@@ -39,8 +39,8 @@ vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts
 vim.keymap.set("n", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
 vim.keymap.set("v", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
 
-vim.keymap.set("n", "<C-n>", "<C-d>zz", {noremap = true, silent = true})
-vim.keymap.set("v", "<C-n>", "<C-d>zz", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {noremap = true, silent = true})
+vim.keymap.set("v", "<C-d>", "<C-d>zz", {noremap = true, silent = true})
 
 
 vim.env.JAVA_HOME = '/opt/homebrew/opt/openjdk@23'
