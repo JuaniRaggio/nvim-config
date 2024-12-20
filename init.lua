@@ -49,7 +49,7 @@ vim.env.PATH = vim.env.JAVA_HOME .. '/bin:' .. vim.env.PATH
 require("miconfignvim")
 require("miconfignvim.lazy")
 
-vim.cmd("colorscheme quiet")
+vim.cmd("colorscheme tokyonight-moon")
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight LineNr guibg=NONE")
 vim.cmd("highlight SignColumn guibg=NONE")
