@@ -10,6 +10,10 @@ vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>/", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>/", ":CommentToggle<CR>")
 
+vim.g.undotree_WindowLayout = 3
+vim.cmd [[
+  autocmd FileType undotree setlocal winwidth=52
+]]
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 local harpoon = require("harpoon")

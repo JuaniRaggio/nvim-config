@@ -32,9 +32,14 @@ vim.keymap.set("n", "d", function()
     end
 end, { expr = true })
 
-vim.api.nvim_set_keymap("n", "<leader>h", ":belowright 10split | terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", ":rightbelow vnew | vertical resize 53 | terminal<CR>",
+        { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+vim.cmd [[highlight TermNormal guibg=NONE guifg=NONE]]
+vim.cmd [[highlight TermNormalNC guibg=NONE guifg=NONE]]
+
+vim.api.nvim_set_keymap("n", "gd",
+        "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
 vim.keymap.set("v", "<C-u>", "<C-u>zz", {noremap = true, silent = true})
