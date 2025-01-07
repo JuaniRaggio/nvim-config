@@ -60,20 +60,21 @@ vim.keymap.set("n", "d", function()
 end, { expr = true })
 ```
 
-## <leader> == " "
+## \<leader\> == " "
 ---
-- <leader>s -> Changes all ocurrencys of the word below the cursor for the current file
-- <leader>u -> Open undo tree
-- <leader>e -> Open harpoon saved files. You can delete files from your current harpoon with dd and then save changes
+- \<leader\>s -> Changes all ocurrencys of the word below the cursor for the current file
+- \<leader\>u -> Open undo tree
+- \<leader\>e -> Open harpoon saved files. You can delete files from your current harpoon with dd and then save changes
 with :w
 
 #### Navegating through a proyect
 ---
-- <leader>pv -> Proyect view. Opens a general view of the current proyect, it will always the proyect of the first
+- \<leader\>pv -> Proyect view. Opens a general view of the current proyect, it will always the proyect of the first
 opened file. Its similar to :ex in vanilla vim.
-- <leader>ft -> Format total. Formats the current file (need *Language server protocol installed*)
-- <leader>ff -> Find files. Fuzzy finder in current proyect for archives/directories name
-- <leader>fg -> Find grep. Uses *live_grep* to grep for patterns within the current proyect
+- \<leader\>ft -> Format total. Formats the current file (need *Language server protocol installed*)
+- \<leader\>ff -> Find files. Fuzzy finder in current proyect for archives/directories name
+- \<leader\>fg -> Find grep. Uses *live_grep* to grep for patterns within the current proyect
+- \<leader\>th -> Grep through themes
 
 
 
