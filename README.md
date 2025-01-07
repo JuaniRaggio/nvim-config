@@ -62,13 +62,19 @@ end, { expr = true })
 
 ## \<leader\> == " "
 ---
+
+### Manage code
+---
+- \<leader\>/ -> Comment toggle. *Works in normal mode and in visual mode*
 - \<leader\>s -> Changes all ocurrencys of the word below the cursor for the current file
 - \<leader\>u -> Open undo tree
+
+### Navegating through proyects
+---
 - \<leader\>e -> Open harpoon saved files. You can delete files from your current harpoon with dd and then save changes
 with :w
-
-#### Navegating through a proyect
----
+- \<leader\>a -> Save current file to harpoon
+- \<C-h\>, \<C-j\>, \<C-k\>, \<C-l\>, \<C-n\>, \<C-m\>, \<C-,\>, \<C-.\> -> Swap through saved files in harpoon
 - \<leader\>pv -> Proyect view. Opens a general view of the current proyect, it will always the proyect of the first
 opened file. Its similar to :ex in vanilla vim.
 - \<leader\>ft -> Format total. Formats the current file (need *Language server protocol installed*)
