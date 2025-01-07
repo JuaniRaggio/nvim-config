@@ -32,7 +32,7 @@ vim.keymap.set("n", "d", function()
     end
 end, { expr = true })
 
-vim.api.nvim_set_keymap("n", "<leader>h", ":rightbelow vnew | vertical resize 53 | terminal<CR>",
+vim.api.nvim_set_keymap("n", "<leader>h", ":rightbelow vnew | vertical resize 42 | terminal<CR>",
         { noremap = true, silent = true })
 
 vim.cmd [[highlight TermNormal guibg=NONE guifg=NONE]]
