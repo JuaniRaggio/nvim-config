@@ -1,5 +1,12 @@
+require("neo-tree").setup({
+  window = {
+    width = "100%",
+    height = "100%",
+    position = "float",
+  }
+})
 -- Keymaps
-vim.keymap.set("n", "<leader>nt", ":Neotree filesystem reveal left toggle<CR>")
+vim.keymap.set("n", "<leader>nt", ":Neotree filesystem reveal toggle<CR>")
 vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
