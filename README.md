@@ -68,6 +68,8 @@ end, { expr = true })
 - \<leader\>/ -> Comment toggle. *Works in normal mode and in visual mode*
 - \<leader\>s -> Changes all ocurrencys of the word below the cursor for the current file
 - \<leader\>u -> Open undo tree
+- \<leader\>y or \<leader\>Y -> Copy in system's clipboard
+- \<leader\>p or \<leader\>P -> Paste from system's clipboard
 
 ### Navegating through proyects
 ---
@@ -75,6 +77,7 @@ end, { expr = true })
 with :w
 - \<leader\>a -> Save current file to harpoon
 - \<C-h\>, \<C-j\>, \<C-k\>, \<C-l\>, \<C-n\>, \<C-m\>, \<C-,\>, \<C-.\> -> Swap through saved files in harpoon
+- \<C-S-N\>, \<C-S-P\> -> Go next, Go Prev in harpoon saved files
 - \<leader\>pv -> Proyect view. Opens a general view of the current proyect, it will always the proyect of the first
 opened file. Its similar to :ex in vanilla vim.
 - \<leader\>ft -> Format total. Formats the current file (need *Language server protocol installed*)
