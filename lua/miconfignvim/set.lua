@@ -26,5 +26,5 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.guicursor = "n-v-c-i:block"
+vim.opt.guicursor = "n-v-c-i:block,i-ci-ve:block25,r-cr:block20,o:block50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
