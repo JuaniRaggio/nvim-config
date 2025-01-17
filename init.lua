@@ -1,37 +1,38 @@
 vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
--- Invertir j y k para movimiento
-vim.api.nvim_set_keymap("n", "j", "k", opts)
-vim.api.nvim_set_keymap("n", "k", "j", opts)
-vim.api.nvim_set_keymap("v", "j", "k", opts)
-vim.api.nvim_set_keymap("v", "k", "j", opts)
 
--- Hacer lo mismo para otras combinaciones como c (cortar) y y (copiar)
-vim.api.nvim_set_keymap("n", "cj", "ck", opts)
-vim.api.nvim_set_keymap("n", "ck", "cj", opts)
-
-vim.api.nvim_set_keymap("n", "yj", "yk", opts)
-vim.api.nvim_set_keymap("n", "yk", "yj", opts)
-
-vim.keymap.set("n", "d", function()
-    local key = vim.fn.getcharstr()
-    local num = ""
-    -- Capture the number of lines to delete
-    while key:match("%d") do
-        num = num .. key
-        key = vim.fn.getcharstr()
-    end
-    -- Check the next key to determine direction
-    if key == "j" then
-        return "d" .. num .. "k"
-    elseif key == "k" then
-        return "d" .. num .. "j"
-    else
-        -- If the next key is not 'j' or 'k', return the original command
-        return "d" .. num .. key
-    end
-end, { expr = true })
-
+-- This inverts j and k but I'm trying to switch to the detault keybinds
+-- vim.api.nvim_set_keymap("n", "j", "k", opts)
+-- vim.api.nvim_set_keymap("n", "k", "j", opts)
+-- vim.api.nvim_set_keymap("v", "j", "k", opts)
+-- vim.api.nvim_set_keymap("v", "k", "j", opts)
+--
+-- -- Hacer lo mismo para otras combinaciones como c (cortar) y y (copiar)
+-- vim.api.nvim_set_keymap("n", "cj", "ck", opts)
+-- vim.api.nvim_set_keymap("n", "ck", "cj", opts)
+--
+-- vim.api.nvim_set_keymap("n", "yj", "yk", opts)
+-- vim.api.nvim_set_keymap("n", "yk", "yj", opts)
+--
+-- vim.keymap.set("n", "d", function()
+--     local key = vim.fn.getcharstr()
+--     local num = ""
+--     -- Capture the number of lines to delete
+--     while key:match("%d") do
+--         num = num .. key
+--         key = vim.fn.getcharstr()
+--     end
+--     -- Check the next key to determine direction
+--     if key == "j" then
+--         return "d" .. num .. "k"
+--     elseif key == "k" then
+--         return "d" .. num .. "j"
+--     else
+--         -- If the next key is not 'j' or 'k', return the original command
+--         return "d" .. num .. key
+--     end
+-- end, { expr = true })
+--
 vim.api.nvim_set_keymap("n", "<leader>h", ":rightbelow vnew | vertical resize 42 | terminal<CR>",
         { noremap = true, silent = true })
 
@@ -54,7 +55,7 @@ vim.env.PATH = vim.env.JAVA_HOME .. '/bin:' .. vim.env.PATH
 require("miconfignvim")
 require("miconfignvim.lazy")
 
-vim.cmd("colorscheme tokyonight-storm")
+vim.cmd("colorscheme tokyonight-night")
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight LineNr guibg=NONE")
 vim.cmd("highlight SignColumn guibg=NONE")
