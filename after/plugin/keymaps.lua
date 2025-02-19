@@ -5,16 +5,17 @@ require("neo-tree").setup({
 		position = "float",
 	},
 })
+
 -- Keymaps
 vim.keymap.set("n", "<leader>pv", ":Neotree filesystem reveal toggle<CR>")
 vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
 vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 
-vim.keymap.set("n", "<leader>/", ":CommentToggle<CR>")
-vim.keymap.set("v", "<leader>/", ":CommentToggle<CR>")
+vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
+vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")
 
 vim.g.undotree_WindowLayout = 3
 vim.cmd([[
