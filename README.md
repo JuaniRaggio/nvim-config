@@ -26,46 +26,13 @@
 > either you have to change the keybinds which is pretty quick but its not a good thing to do. *So if you want to
 > reverse this keybind...*
 *comment this code lines in the init.lua file*
-```lua
--- Invertir j y k para movimiento
-vim.api.nvim_set_keymap("n", "j", "k", opts)
-vim.api.nvim_set_keymap("n", "k", "j", opts)
-vim.api.nvim_set_keymap("v", "j", "k", opts)
-vim.api.nvim_set_keymap("v", "k", "j", opts)
-
--- Hacer lo mismo para otras combinaciones como c (cortar) y y (copiar)
-vim.api.nvim_set_keymap("n", "cj", "ck", opts)
-vim.api.nvim_set_keymap("n", "ck", "cj", opts)
-
-vim.api.nvim_set_keymap("n", "yj", "yk", opts)
-vim.api.nvim_set_keymap("n", "yk", "yj", opts)
-
-vim.keymap.set("n", "d", function()
-    local key = vim.fn.getcharstr()
-    local num = ""
-    -- Capture the number of lines to delete
-    while key:match("%d") do
-        num = num .. key
-        key = vim.fn.getcharstr()
-    end
-    -- Check the next key to determine direction
-    if key == "j" then
-        return "d" .. num .. "k"
-    elseif key == "k" then
-        return "d" .. num .. "j"
-    else
-        -- If the next key is not 'j' or 'k', return the original command
-        return "d" .. num .. key
-    end
-end, { expr = true })
-```
 
 ## \<leader\> == " "
 ---
 
 ### Manage code
 ---
-- \<leader\>/ -> Comment toggle. *Works in normal mode and in visual mode*
+- \<leader\># -> Comment toggle. *Works in normal mode and in visual mode*
 - \<leader\>s -> Changes all ocurrencys of the word below the cursor for the current file
 - \<leader\>u -> Open undo tree
 - \<leader\>y or \<leader\>Y -> Copy in system's clipboard
@@ -82,7 +49,7 @@ with :w
 opened file. Its similar to :ex in vanilla vim.
 - \<leader\>ft -> Format total. Formats the current file (need *Language server protocol installed*)
 - \<leader\>ff -> Find files. Fuzzy finder in current proyect for archives/directories name
-- \<leader\>fg -> Find grep. Uses *live_grep* to grep for patterns within the current proyect
+- \<leader\>/ -> Search w/live_grep throught current proyect
 - \<leader\>th -> Grep through themes
 
 
