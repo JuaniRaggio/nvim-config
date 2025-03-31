@@ -11,8 +11,8 @@ return {
             configuration = {
               runtimes = {
                 {
-                  name = "JavaSE-21",
-                  path = "/opt/jdk-21",
+                  name = "JavaSE-23",
+                  path = "/opt/jdk-23",
                   root_markers = {
                     'settings.gradle',
                     'settings.gradle.kts',
