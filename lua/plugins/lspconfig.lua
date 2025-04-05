@@ -31,7 +31,7 @@ return {
       })
       lspconfig.clangd.setup({
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
+        on_attach = function(bufnr)
           -- Opcional: Mapea comandos LSP para el buffer actual
           require("lsp_signature").on_attach({
             bind = true,
