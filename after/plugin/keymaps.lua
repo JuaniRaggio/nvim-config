@@ -17,6 +17,14 @@ vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")
 
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+
+-- For Quickfix
+vim.keymap.set('n', '<leader>qf', ':Telescope quickfix<CR>', { desc = 'Buscar en errores' })
+
 vim.g.undotree_WindowLayout = 3
 
 vim.cmd([[

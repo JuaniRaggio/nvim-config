@@ -1,4 +1,7 @@
 vim.g.mapleader = " "
+vim.opt.shell = "/bin/zsh"
+vim.opt.shellcmdflag = "-ic"
+
 local opts = { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap(
@@ -14,11 +17,6 @@ vim.api.nvim_set_keymap(
   "<cmd>lua vim.lsp.buf.definition()<CR>",
   opts
 )
-
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-vim.keymap.set("v", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
 require("miconfignvim")
 require("miconfignvim.lazy")
