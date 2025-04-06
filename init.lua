@@ -4,12 +4,13 @@ vim.opt.shellcmdflag = "-ic"
 
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>h",
-  ":rightbelow vnew | vertical resize 42 | terminal<CR>",
-  { noremap = true, silent = true }
-)
+-- This is not that usefull since you can run commands using :!<cmd>
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<leader>h",
+--   ":rightbelow vnew | vertical resize 42 | terminal<CR>",
+--   { noremap = true, silent = true }
+-- )
 
 vim.api.nvim_set_keymap(
   "n",
