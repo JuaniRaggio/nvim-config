@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-
     config = function()
       require("mason").setup()
     end,
@@ -31,7 +30,7 @@ return {
       })
       lspconfig.clangd.setup({
         capabilities = capabilities,
-        on_attach = function(bufnr)
+        on_attach = function(client, bufnr)
           -- Opcional: Mapea comandos LSP para el buffer actual
           require("lsp_signature").on_attach({
             bind = true,

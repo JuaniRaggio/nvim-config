@@ -17,3 +17,5 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- SPC + r + m -> Run Maven -> For running mvn tests
 vim.keymap.set("n", "<leader>mt", [[:!mvn clean test<CR>]])
 
+-- Show explicitly compilation errors
+vim.keymap.set("n", "<leader>?", [[:lua vim.diagnostic.open_float()<CR>]])
