@@ -1,2 +1,3 @@
 return {
+  "folke/tokyonight.nvim",
 }

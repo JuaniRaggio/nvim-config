@@ -15,7 +15,7 @@ require("miconfignvim")
 require("miconfignvim.lazy")
 
 vim.cmd([[
-  colorscheme tokyonight
+  colorscheme tokyonight-storm
   highlight TermNormal guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal guibg=NONE ctermbg=NONE
