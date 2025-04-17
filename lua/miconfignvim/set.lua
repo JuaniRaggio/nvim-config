@@ -21,18 +21,13 @@ vim.opt.termguicolors = false
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
--- Block cursor even in insert mode
-vim.opt.guicursor = {
-  "n-v-c-i:block",
-  "i-ci-ve:block25",
-  "r-cr:block20",
-  "o:block50",
-  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-  "sm:block-blinkwait175-blinkoff150-blinkon175",
-}
+-- This should be activate if we are working with other people
+-- vim.opt.colorcolumn = "80"
+
+vim.o.guicursor = "n-v-c-sm:block-blinkon500-blinkoff500-blinkwait500,i-ci-ve:ver25-blinkon500-blinkoff500-blinkwait500"
+
 vim.opt.cursorline = true
