@@ -18,42 +18,50 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					-- Opcional: Mapea comandos LSP para el buffer actual
-					require("lsp_signature").on_attach({
-						bind = true,
-						floating_window = true,
-						hint_enable = true,
-					}, bufnr)
-				end,
-			})
+      lspconfig.tinymist.setup({
+        capabilities = capabilities,
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "never"
+        },
+      })
 
-			-- Pyright para Python
-			lspconfig.pyright.setup({
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-			})
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+      lspconfig.clangd.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          -- Opcional: Mapea comandos LSP para el buffer actual
+          require("lsp_signature").on_attach({
+            bind = true,
+            floating_window = true,
+            hint_enable = true,
+          }, bufnr)
+        end,
+      })
 
-			-- solargraph para Ruby
-			lspconfig.solargraph.setup({
-				settings = {
-					solargraph = {
-						diagnostics = true,
-					},
-				},
-			})
+      -- Pyright para Python
+      lspconfig.pyright.setup({
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
 
-		end,
-	},
+      -- solargraph para Ruby
+      lspconfig.solargraph.setup({
+        settings = {
+          solargraph = {
+            diagnostics = true,
+          },
+        },
+      })
+
+    end,
+  },
 }

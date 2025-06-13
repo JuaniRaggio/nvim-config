@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
-vim.opt.shell = "/bin/zsh"
-vim.opt.shellcmdflag = "-ic"
 
 local opts = { noremap = true, silent = true }
 
@@ -15,7 +13,7 @@ require("miconfignvim")
 require("miconfignvim.lazy")
 
 vim.cmd([[
-  colorscheme tokyonight-storm
+  colorscheme catppuccin-mocha
   highlight TermNormal   guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal       guibg=NONE ctermbg=NONE
