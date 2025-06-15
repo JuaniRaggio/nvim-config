@@ -25,9 +25,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
--- This should be activate if we are working with other people
--- vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"
 
-vim.o.guicursor = "n-v-c-sm:block-blinkon500-blinkoff500-blinkwait500,i-ci-ve:ver25-blinkon500-blinkoff500-blinkwait500"
+vim.o.guicursor = "n-v-c-sm:block-blinkon500-blinkoff500-blinkwait500,i-ci-ve:hor20-blinkon500-blinkoff500-blinkwait500"
 
 vim.opt.cursorline = true
