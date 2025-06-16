@@ -12,15 +12,18 @@ vim.api.nvim_set_keymap(
 require("miconfignvim")
 require("miconfignvim.lazy")
 
+-- LineNr for dark theme
+-- DT: guifg=#93CEED gui=NONE
+
 vim.cmd([[
-  colorscheme catppuccin-mocha
+  colorscheme tokyonight
   highlight TermNormal   guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal       guibg=NONE ctermbg=NONE
   highlight SignColumn   guibg=NONE
   highlight StatusLine   guibg=NONE
   highlight VertSplit    guibg=NONE
-  highlight LineNr       guifg=#93CEED gui=NONE
+  highlight LineNr       guifg=#000000 gui=NONE
   highlight CursorLineNr guifg=#FFFFFF gui=bold
   highlight LineNrAbove  guifg=#93CEED gui=NONE
   highlight LineNrBelow  guifg=#93CEED gui=NONE
