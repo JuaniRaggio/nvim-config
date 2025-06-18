@@ -16,7 +16,7 @@ require("miconfignvim.lazy")
 -- DT: guifg=#93CEED gui=NONE
 
 vim.cmd([[
-  colorscheme tokyonight
+  colorscheme catppuccin
   highlight TermNormal   guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal       guibg=NONE ctermbg=NONE
