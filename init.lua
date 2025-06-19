@@ -12,11 +12,8 @@ vim.api.nvim_set_keymap(
 require("miconfignvim")
 require("miconfignvim.lazy")
 
--- LineNr for dark theme
--- DT: guifg=#93CEED gui=NONE
-
 vim.cmd([[
-  colorscheme catppuccin
+  colorscheme tokyonight-night
   highlight TermNormal   guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal       guibg=NONE ctermbg=NONE
