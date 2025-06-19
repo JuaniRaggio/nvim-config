@@ -12,6 +12,8 @@ vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
+vim.g.undotree_WindowLayout = 3
+
 vim.cmd([[
   autocmd FileType undotree setlocal winwidth=52
 ]])
