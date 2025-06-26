@@ -12,8 +12,11 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- Space+s replaces de word in which we are on
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- SPC + r + m -> Run Maven -> For running mvn tests
+-- SPC + m + t -> Run Maven -> For running mvn tests
 vim.keymap.set("n", "<leader>mt", [[:!mvn clean test<CR>]])
+
+-- SPC + m + f -> Run Maven for JavaFX
+vim.keymap.set("n", "<leader>mf", [[:!mvn clean javafx:run<CR>]])
 
 -- Show explicitly compilation errors
 vim.keymap.set("n", "<leader>?", [[:lua vim.diagnostic.open_float()<CR>]])
