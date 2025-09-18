@@ -10,6 +10,7 @@ return {
 		config = function()
             local lspkind = require('lspkind')
 			local cmp = require("cmp")
+			require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
 
 			cmp.setup({
 				snippet = {
