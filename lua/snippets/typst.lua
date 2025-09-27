@@ -22,5 +22,10 @@ return {
 {}]], {
         f(get_date),
         i(0)
+    })),
+
+    s("conclusion", fmt([[
+#align(center)[#table()[{}]]]], {
+        i(0)
     }))
 }
