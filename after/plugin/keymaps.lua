@@ -3,17 +3,11 @@ vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
-vim.keymap.set('n', '<leader>fb', ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 
 vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")
-
-vim.keymap.set("n", "<leader>1", ":1tabn<CR>")
-vim.keymap.set("n", "<leader>2", ":2tabn<CR>")
-vim.keymap.set("n", "<leader>3", ":3tabn<CR>")
-vim.keymap.set("n", "<leader>2", ":4tabn<CR>")
-vim.keymap.set("n", "<leader>5", ":5tabn<CR>")
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })

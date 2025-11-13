@@ -7,61 +7,49 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		require("lsp_signature").setup({
-			bind = true,
-			floating_window = true,
-			hint_enable = true,
-			hi_parameter = "Search",
-		}),
+		dependencies = { "saghen/blink.cmp" },
 
 		config = function()
 			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      lspconfig.tinymist.setup({
-        capabilities = capabilities,
-        settings = {
-          formatterMode = "typstyle",
-          exportPdf = "never"
-        },
-      })
+			lspconfig.tinymist.setup({
+				capabilities = capabilities,
+				settings = {
+					formatterMode = "typstyle",
+					exportPdf = "never",
+				},
+			})
 
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
-      })
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          -- Opcional: Mapea comandos LSP para el buffer actual
-          require("lsp_signature").on_attach({
-            bind = true,
-            floating_window = true,
-            hint_enable = true,
-          }, bufnr)
-        end,
-      })
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			})
 
-      -- Pyright para Python
-      lspconfig.pyright.setup({
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
 
-      -- solargraph para Ruby
-      lspconfig.solargraph.setup({
-        settings = {
-          solargraph = {
-            diagnostics = true,
-          },
-        },
-      })
+			-- Pyright para Python
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
 
-    end,
-  },
+			-- solargraph para Ruby
+			lspconfig.solargraph.setup({
+				capabilities = capabilities,
+				settings = {
+					solargraph = {
+						diagnostics = true,
+					},
+				},
+			})
+		end,
+	},
 }
