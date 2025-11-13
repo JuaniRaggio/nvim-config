@@ -24,6 +24,4 @@ vim.cmd([[
   highlight CursorLineNr guifg=#FFFFFF gui=bold
   highlight LineNrAbove  guifg=#93CEED gui=NONE
   highlight LineNrBelow  guifg=#93CEED gui=NONE
-  highlight! link @type NONE
-  highlight! link @variable NONE
 ]])
