@@ -4,6 +4,7 @@ vim.keymap.set("n", "<leader>ff", ":Telescope find_files theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers theme=get_ivy<CR>")
+vim.keymap.set("n", "<leader>fe", ":Telescope diagnostics theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 
 vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
