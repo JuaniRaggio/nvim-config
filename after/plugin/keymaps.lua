@@ -1,6 +1,6 @@
 -- Keymaps
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files theme=get_ivy<CR>")
+vim.keymap.set("n", "<leader>ff", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader><leader>", ":Telescope find_files theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme theme=get_ivy<CR>")
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers theme=get_ivy<CR>")
