@@ -50,6 +50,19 @@ return {
 					},
 				},
 			})
+
+			-- gopls para Go
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+					},
+				},
+			})
 		end,
 	},
 }
