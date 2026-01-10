@@ -12,16 +12,18 @@ vim.api.nvim_set_keymap(
 require("miconfignvim")
 require("miconfignvim.lazy")
 
+vim.o.background = "dark"
+vim.cmd("colorscheme solarized")
+
 vim.cmd([[
-  colorscheme tokyonight-night
   highlight TermNormal   guibg=NONE guifg=NONE
   highlight TermNormalNC guibg=NONE guifg=NONE
   highlight Normal       guibg=NONE ctermbg=NONE
   highlight SignColumn   guibg=NONE
   highlight StatusLine   guibg=NONE
   highlight VertSplit    guibg=NONE
-  highlight LineNr       guifg=#54546D gui=NONE
-  highlight CursorLineNr guifg=#DCD7BA gui=bold
-  highlight LineNrAbove  guifg=#7E9CD8 gui=NONE
-  highlight LineNrBelow  guifg=#7E9CD8 gui=NONE
+  highlight LineNr       guifg=#586e75 gui=NONE
+  highlight CursorLineNr guifg=#93a1a1 gui=bold
+  highlight LineNrAbove  guifg=#657b83 gui=NONE
+  highlight LineNrBelow  guifg=#657b83 gui=NONE
 ]])
