@@ -35,6 +35,6 @@ vim.opt.cursorline = true
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
   callback = function()
-    vim.opt.guicursor = "a:ver25"
+    vim.opt.guicursor = "a:ver25-blinkon500-blinkoff500-blinkwait500"
   end,
 })
