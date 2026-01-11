@@ -39,6 +39,7 @@ return {
 					mappings = {
 						["i"] = {
 							["<Tab>"] = select_and_cd,
+							["<CR>"] = select_and_cd,
 							["<C-c>"] = actions.close,
 							["<C-h>"] = fb_actions.goto_parent_dir,
 							["<C-l>"] = fb_actions.change_cwd,
