@@ -30,3 +30,11 @@ vim.opt.guicursor = ""
 vim.o.guicursor = "n-v-c-sm:block-blinkon500-blinkoff500-blinkwait500,i-ci-ve:ver25-blinkon500-blinkoff500-blinkwait500"
 
 vim.opt.cursorline = true
+
+-- Restaurar cursor a barra al salir de nvim
+vim.api.nvim_create_autocmd("VimLeave", {
+  pattern = "*",
+  callback = function()
+    vim.opt.guicursor = "a:ver25"
+  end,
+})
