@@ -23,23 +23,39 @@ return {
 			actions.select_default(prompt_bufnr)
 		end
 
+		local ivy_opts = {
+			layout_strategy = "bottom_pane",
+			layout_config = {
+				height = 999,
+				prompt_position = "top",
+			},
+			sorting_strategy = "ascending",
+			border = true,
+			borderchars = {
+				prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+				results = { " " },
+				preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+			},
+		}
+
 		telescope.setup({
+			defaults = ivy_opts,
 			pickers = {
-				colorscheme = {
+				colorscheme = vim.tbl_extend("force", ivy_opts, {
 					color_devicons = true,
 					enable_preview = true,
-				},
+				}),
 			},
 			extensions = {
-				file_browser = {
-					theme = "ivy",
+				file_browser = vim.tbl_extend("force", ivy_opts, {
 					hijack_netrw = true,
 					hidden = { file_browser = true, folder_browser = true },
 					respect_gitignore = false,
 					mappings = {
 						["i"] = {
 							["<Tab>"] = select_and_cd,
-							["<CR>"] = select_and_cd,
+              ["<CR>"] = select_and_cd,
+							["<C-j>"] = actions.toggle_selection + actions.move_selection_worse,
 							["<C-c>"] = actions.close,
 							["<C-h>"] = fb_actions.goto_parent_dir,
 							["<C-l>"] = fb_actions.change_cwd,
@@ -51,6 +67,8 @@ return {
 							["<C-.>"] = fb_actions.toggle_hidden,
 						},
 						["n"] = {
+							["<Tab>"] = select_and_cd,
+              ["<CR>"] = select_and_cd,
 							["q"] = actions.close,
 							["h"] = fb_actions.goto_parent_dir,
 							["l"] = actions.select_default,
@@ -63,7 +81,7 @@ return {
 							["."] = fb_actions.toggle_hidden,
 						},
 					},
-				},
+				}),
 			},
 		})
 
