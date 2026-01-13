@@ -3,9 +3,9 @@ vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buff
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>fe", ":Telescope diagnostics<CR>")
-vim.keymap.set("n", "<leader>gb", ":Telescope git_commits<CR>")
+vim.keymap.set("n", "<leader>fb", ":Gitsigns blame<CR>")
 vim.keymap.set("n", "<leader>fm", ":Telescope man_pages<CR>")
 vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
 
