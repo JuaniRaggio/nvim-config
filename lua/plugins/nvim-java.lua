@@ -25,14 +25,15 @@ return {
           enable = true,
         },
         jdk = {
-          auto_install = true,
+          auto_install = false,
         },
         notifications = {
           dap = true,
         },
       })
 
-      require('lspconfig').jdtls.setup({})
+      vim.lsp.config("jdtls", {})
+      vim.lsp.enable("jdtls")
     end,
   },
 }

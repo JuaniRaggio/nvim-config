@@ -10,10 +10,9 @@ return {
 		dependencies = { "saghen/blink.cmp" },
 
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-			lspconfig.tinymist.setup({
+			vim.lsp.config("tinymist", {
 				capabilities = capabilities,
 				settings = {
 					formatterMode = "typstyle",
@@ -21,7 +20,7 @@ return {
 				},
 			})
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				settings = {
 					Lua = {
@@ -32,17 +31,15 @@ return {
 				},
 			})
 
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 			})
 
-			-- Pyright para Python
-			lspconfig.pyright.setup({
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 			})
 
-			-- solargraph para Ruby
-			lspconfig.solargraph.setup({
+			vim.lsp.config("solargraph", {
 				capabilities = capabilities,
 				settings = {
 					solargraph = {
@@ -51,8 +48,7 @@ return {
 				},
 			})
 
-			-- gopls para Go
-			lspconfig.gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 				settings = {
 					gopls = {
@@ -63,6 +59,8 @@ return {
 					},
 				},
 			})
+
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls" })
 		end,
 	},
 }
