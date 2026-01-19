@@ -1,13 +1,16 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-
-	main = "nvim-treesitter",
-	opts = {
-		ensure_installed = { "ada", "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "typst" },
-		auto_install = false,
-		sync_install = false,
-		highlight = { enable = true, additional_vim_regex_highlighting = false },
-		indent = { enable = true },
-	},
+	config = function()
+		require("nvim-treesitter").setup({
+			ensure_installed = { "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "markdown_inline", "typst" },
+			auto_install = true,
+		})
+		-- Iniciar treesitter highlight automaticamente
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				pcall(vim.treesitter.start)
+			end,
+		})
+	end,
 }
