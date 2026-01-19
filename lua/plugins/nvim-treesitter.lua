@@ -2,15 +2,12 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 
-	config = function()
-		local configs = require("nvim-treesitter.configs")
-
-		configs.setup({
-			ensure_installed = { "ada", "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "typst" },
-			auto_install = false,
-			sync_install = false,
-			highlight = { enable = true, additional_vim_regex_highlighting = false },
-			indent = { enable = true },
-		})
-	end,
+	main = "nvim-treesitter",
+	opts = {
+		ensure_installed = { "ada", "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "typst" },
+		auto_install = false,
+		sync_install = false,
+		highlight = { enable = true, additional_vim_regex_highlighting = false },
+		indent = { enable = true },
+	},
 }
