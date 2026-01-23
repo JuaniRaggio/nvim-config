@@ -1,14 +1,5 @@
 vim.g.mapleader = " "
 
-local opts = { noremap = true, silent = true }
-
-vim.api.nvim_set_keymap(
-  "n",
-  "gd",
-  "<cmd>lua vim.lsp.buf.definition()<CR>",
-  opts
-)
-
 require("miconfignvim")
 require("miconfignvim.lazy")
 
