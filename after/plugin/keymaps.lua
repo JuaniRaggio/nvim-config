@@ -1,5 +1,6 @@
 -- Keymaps
-vim.keymap.set("n", "<leader>e", "<CMD>ViredOpen<CR>")
+-- vim.keymap.set("n", "<leader>e", "<CMD>ViredOpen<CR>")
+vim.keymap.set("n", "<leader>e", "<CMD>Ex<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
@@ -8,6 +9,16 @@ vim.keymap.set("n", "<leader>fe", ":Telescope diagnostics<CR>")
 vim.keymap.set("n", "<leader>fb", ":Gitsigns blame<CR>")
 vim.keymap.set("n", "<leader>fm", ":Telescope man_pages<CR>")
 vim.keymap.set("n", "<leader>ft", vim.lsp.buf.format, {})
+
+-- LSP keymaps
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
+vim.keymap.set("n", "grr", ":Telescope lsp_references<CR>")
+vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>")
+vim.keymap.set("n", "<leader>D", ":Telescope lsp_type_definitions<CR>")
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
 
 vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")
