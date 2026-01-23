@@ -6,6 +6,7 @@ return {
 			"nvim-telescope/telescope-file-browser.nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 		},
+		"nvim-telescope/telescope-ui-select.nvim",
 	},
 
 	config = function()
@@ -46,6 +47,9 @@ return {
 				}),
 			},
 			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown(),
+				},
 				file_browser = vim.tbl_extend("force", ivy_opts, {
 					hijack_netrw = true,
 					hidden = { file_browser = true, folder_browser = true },
@@ -53,7 +57,7 @@ return {
 					mappings = {
 						["i"] = {
 							["<Tab>"] = select_and_cd,
-              ["<CR>"] = select_and_cd,
+							["<CR>"] = select_and_cd,
 							["<C-j>"] = actions.toggle_selection + actions.move_selection_worse,
 							["<C-c>"] = actions.close,
 							["<C-h>"] = fb_actions.goto_parent_dir,
@@ -67,7 +71,7 @@ return {
 						},
 						["n"] = {
 							["<Tab>"] = select_and_cd,
-              ["<CR>"] = select_and_cd,
+							["<CR>"] = select_and_cd,
 							["q"] = actions.close,
 							["h"] = fb_actions.goto_parent_dir,
 							["l"] = actions.select_default,
@@ -85,5 +89,6 @@ return {
 		})
 
 		telescope.load_extension("file_browser")
+		telescope.load_extension("ui-select")
 	end,
 }
