@@ -25,7 +25,7 @@ return {
           enable = true,
         },
         jdk = {
-          auto_install = false,
+          auto_install = true,
         },
         notifications = {
           dap = true,
