@@ -3,7 +3,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter").setup({
-			ensure_installed = { "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "markdown_inline", "typst" },
+			ensure_installed = { "c", "cpp", "python", "lua", "vim", "vimdoc", "java", "markdown", "markdown_inline", "typst", "elixir", "heex", "eex_elixir" },
 			auto_install = true,
 		})
 		-- Iniciar treesitter highlight automaticamente

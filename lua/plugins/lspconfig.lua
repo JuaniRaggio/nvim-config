@@ -60,7 +60,17 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls" })
+			vim.lsp.config("elixirls", {
+				capabilities = capabilities,
+				settings = {
+					elixirLS = {
+						dialyzerEnabled = true,
+						fetchDeps = false,
+					},
+				},
+			})
+
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls" })
 		end,
 	},
 }
