@@ -31,6 +31,8 @@ vim.o.guicursor = "n-v-c-sm:block-blinkon500-blinkoff500-blinkwait500,i-ci-ve:ve
 
 vim.opt.cursorline = true
 
+vim.opt.cmdheight = 0
+
 -- Restaurar cursor a barra al salir de nvim
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
