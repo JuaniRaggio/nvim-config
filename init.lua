@@ -5,7 +5,7 @@ require("miconfignvim.lazy")
 
 vim.o.background = "dark"
 -- vim.cmd("colorscheme solarized")
-vim.cmd("colorscheme default")
+vim.cmd("colorscheme tokyonight-moon")
 
 local function apply_custom_highlights()
   -- UI highlights
