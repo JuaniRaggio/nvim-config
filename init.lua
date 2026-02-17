@@ -34,7 +34,7 @@ local function apply_custom_highlights()
   vim.api.nvim_set_hl(0, "@punctuation.special", {})
   vim.api.nvim_set_hl(0, "@operator", {})
   vim.api.nvim_set_hl(0, "@constructor", {})
-  vim.api.nvim_set_hl(0, "@comment", {})
+  vim.api.nvim_set_hl(0, "@comment", { fg = "#636da6", italic = true })
 end
 
 apply_custom_highlights()
