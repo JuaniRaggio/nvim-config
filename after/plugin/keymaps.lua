@@ -1,7 +1,7 @@
 -- Keymaps
 -- vim.keymap.set("n", "<leader>e", "<CMD>ViredOpen<CR>")
 -- vim.keymap.set("n", "<leader>fp", "<CMD>ViredProjects<CR>")
-vim.keymap.set("n", "<leader>e", "<CMD>Ex<CR>")
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
