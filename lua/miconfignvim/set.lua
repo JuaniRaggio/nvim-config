@@ -33,6 +33,11 @@ vim.opt.cursorline = true
 
 vim.opt.cmdheight = 0
 
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  command = "checktime",
+})
+
 -- Restaurar cursor a barra al salir de nvim
 vim.api.nvim_create_autocmd("VimLeave", {
   pattern = "*",
