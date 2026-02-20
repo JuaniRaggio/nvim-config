@@ -2,6 +2,16 @@ return {
   "stevearc/oil.nvim",
   lazy = false,
   config = function()
-    require("oil").setup()
+    require("oil").setup({
+      columns = {
+        "permissions",
+        "size",
+        "mtime",
+        "icon",
+      },
+      view_options = {
+        show_hidden = true,
+      },
+    })
   end,
 }
