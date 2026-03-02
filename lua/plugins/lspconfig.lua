@@ -70,7 +70,14 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls" })
+			vim.lsp.config("korean_ls", {
+				cmd = { "korean-ls", "--stdio" },
+				filetypes = { "markdown", "org", "typst" },
+				root_markers = { ".git" },
+				capabilities = capabilities,
+			})
+
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls" })
 		end,
 	},
 }
