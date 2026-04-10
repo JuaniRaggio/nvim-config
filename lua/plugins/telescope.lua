@@ -45,6 +45,9 @@ return {
 					color_devicons = true,
 					enable_preview = true,
 				}),
+				man_pages = {
+					sections = { "ALL" },
+				},
 			},
 			extensions = {
 				["ui-select"] = {
