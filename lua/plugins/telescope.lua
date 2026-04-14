@@ -26,7 +26,7 @@ return {
 		local ivy_opts = {
 			layout_strategy = "bottom_pane",
 			layout_config = {
-				height = 999,
+				height = 0.4,
 				prompt_position = "top",
 			},
 			sorting_strategy = "ascending",
