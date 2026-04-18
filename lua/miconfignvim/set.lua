@@ -38,10 +38,9 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "checktime",
 })
 
--- Restaurar cursor a barra al salir de nvim
 vim.api.nvim_create_autocmd("VimLeave", {
-  pattern = "*",
   callback = function()
-    vim.opt.guicursor = "a:ver25-blinkon500-blinkoff500-blinkwait500"
+    io.write("\27[3 q")
   end,
 })
+
