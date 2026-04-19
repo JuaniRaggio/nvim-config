@@ -7,7 +7,7 @@ return {
         "permissions",
         "size",
         "mtime",
-        "icon",
+        -- "icon",
       },
       view_options = {
         show_hidden = true,

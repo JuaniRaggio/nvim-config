@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
 
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
-    io.write("\27[3 q")
+    io.write("\27[0 q")
   end,
 })
 
