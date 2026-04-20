@@ -3,6 +3,9 @@ return {
   lazy = false,
   config = function()
     require("oil").setup({
+      confirmation = {
+        border = "rounded",
+      },
       columns = {
         "permissions",
         "size",
