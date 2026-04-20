@@ -2,10 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{
-			"nvim-telescope/telescope-file-browser.nvim",
-			dependencies = { "nvim-tree/nvim-web-devicons" },
-		},
+		"nvim-telescope/telescope-file-browser.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 
@@ -26,7 +23,7 @@ return {
 		local ivy_opts = {
 			layout_strategy = "bottom_pane",
 			layout_config = {
-				height = 0.4,
+				height = 999,
 				prompt_position = "top",
 			},
 			sorting_strategy = "ascending",
@@ -39,7 +36,9 @@ return {
 		}
 
 		telescope.setup({
-			defaults = ivy_opts,
+			defaults = vim.tbl_extend("force", ivy_opts, {
+				disable_devicons = true,
+			}),
 			pickers = {
 				colorscheme = vim.tbl_extend("force", ivy_opts, {
 					color_devicons = true,
