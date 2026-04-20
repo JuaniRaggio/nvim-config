@@ -77,31 +77,14 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.config("sqls", {
+			vim.lsp.config("postgres_lsp", {
+				cmd = { "postgres-language-server", "lsp-proxy" },
+				filetypes = { "sql" },
+				root_markers = { "postgres-language-server.jsonc", ".git" },
 				capabilities = capabilities,
-				root_markers = { ".sqls.yaml", ".git" },
-				settings = {
-					sqls = {
-						connections = {
-							-- Configura conexiones aca o en .sqls.yaml en la raiz del proyecto
-							-- {
-							-- 	driver = "postgresql",
-							-- 	dataSourceName = "host=localhost port=5432 user=postgres password=postgres dbname=mydb sslmode=disable",
-							-- },
-							-- {
-							-- 	driver = "mysql",
-							-- 	dataSourceName = "root:root@tcp(127.0.0.1:3306)/mydb",
-							-- },
-							-- {
-							-- 	driver = "sqlite3",
-							-- 	dataSourceName = "/path/to/db.sqlite3",
-							-- },
-						},
-					},
-				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls" })
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "postgres_lsp" })
 		end,
 	},
 }
