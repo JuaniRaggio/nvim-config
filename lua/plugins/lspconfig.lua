@@ -77,14 +77,16 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.config("postgres_lsp", {
-				cmd = { "postgres-language-server", "lsp-proxy" },
-				filetypes = { "sql" },
-				root_markers = { "postgres-language-server.jsonc", ".git" },
+			vim.lsp.config("sqls", {
 				capabilities = capabilities,
+				settings = {
+					sqls = {
+						lowercaseKeywords = false,
+					},
+				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "postgres_lsp" })
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls" })
 		end,
 	},
 }
