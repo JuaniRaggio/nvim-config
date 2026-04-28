@@ -7,7 +7,6 @@ vim.keymap.set("n", "<leader>/", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>th", ":Telescope colorscheme<CR>")
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>bk", "<CMD>bdelete<CR>", { desc = "Kill buffer" })
-vim.keymap.set("n", "<leader>fb", ":Gitsigns blame<CR>")
 vim.keymap.set("n", "<leader>fm", ":Telescope man_pages<CR>")
 vim.keymap.set("n", "<leader>fr", ":Telescope resume<CR>")
 vim.keymap.set("n", "<leader>ft", function()
@@ -28,8 +27,6 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" }
 vim.keymap.set("n", "]q", "<CMD>cnext<CR>zz", { desc = "Next quickfix" })
 vim.keymap.set("n", "[q", "<CMD>cprev<CR>zz", { desc = "Prev quickfix" })
 
-vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
-vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
