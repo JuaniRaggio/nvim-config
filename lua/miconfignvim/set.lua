@@ -1,9 +1,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 8
+vim.opt.softtabstop = 8
+vim.opt.shiftwidth = 8
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -42,6 +42,14 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "checktime",
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local log = vim.lsp.get_log_path()
+    local f = io.open(log, "w")
+    if f then f:close() end
+  end,
 })
 
 vim.api.nvim_create_autocmd("VimLeave", {
