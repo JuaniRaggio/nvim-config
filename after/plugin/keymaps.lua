@@ -25,6 +25,8 @@ vim.keymap.set("n", "<leader>D", ":Telescope lsp_type_definitions<CR>")
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+vim.keymap.set("n", "]q", "<CMD>cnext<CR>zz", { desc = "Next quickfix" })
+vim.keymap.set("n", "[q", "<CMD>cprev<CR>zz", { desc = "Prev quickfix" })
 
 vim.keymap.set("n", "<leader>#", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>#", ":CommentToggle<CR>")

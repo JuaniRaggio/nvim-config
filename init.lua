@@ -3,6 +3,10 @@ vim.g.mapleader = " "
 require("miconfignvim")
 require("miconfignvim.lazy")
 
+-- Usar ripgrep para :grep
+vim.o.grepprg = "rg --vimgrep --smart-case"
+vim.o.grepformat = "%f:%l:%c:%m"
+
 vim.o.background = "dark"
 vim.cmd("colorscheme everforest")
 
