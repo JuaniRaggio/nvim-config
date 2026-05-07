@@ -67,7 +67,7 @@ local function apply_minimal_colors()
   -- TreeSitter: solarized fiel
   vim.api.nvim_set_hl(0, "@variable", { fg = base0 })
   vim.api.nvim_set_hl(0, "@variable.builtin", { fg = base0 })
-  vim.api.nvim_set_hl(0, "@variable.parameter", { fg = base0 })
+  vim.api.nvim_set_hl(0, "@variable.parameter", { fg = base0, italic = true })  -- parametros en italic
   vim.api.nvim_set_hl(0, "@variable.member", { fg = base0 })
 
   -- Tipos: yellow + bold (para ver declaraciones rapido)
@@ -91,7 +91,7 @@ local function apply_minimal_colors()
   -- Properties y fields: base0
   vim.api.nvim_set_hl(0, "@property", { fg = base0 })
   vim.api.nvim_set_hl(0, "@field", { fg = base0 })
-  vim.api.nvim_set_hl(0, "@parameter", { fg = base0 })
+  vim.api.nvim_set_hl(0, "@parameter", { fg = base0, italic = true })  -- parametros en italic
 
   -- Puntuacion: base00
   vim.api.nvim_set_hl(0, "@punctuation", { fg = base00 })
@@ -107,7 +107,7 @@ local function apply_minimal_colors()
   -- Labels: base0
   vim.api.nvim_set_hl(0, "@label", { fg = base0 })
 
-  -- KEYWORDS: green + bold (solarized original)
+  -- KEYWORDS: green + bold (sin italic)
   vim.api.nvim_set_hl(0, "Keyword", { fg = green, bold = true })
   vim.api.nvim_set_hl(0, "Conditional", { fg = green, bold = true })
   vim.api.nvim_set_hl(0, "Repeat", { fg = green, bold = true })
@@ -165,6 +165,10 @@ local function apply_minimal_colors()
   vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
   vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
   vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
+
+  -- TELESCOPE: mejorar contraste de seleccion
+  vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = base2, bg = base02, bold = true })
+  vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = yellow, bg = base02, bold = true })
 end
 
 apply_minimal_colors()
