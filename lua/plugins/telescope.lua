@@ -10,7 +10,6 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local action_state = require("telescope.actions.state")
-		local fb_actions = require("telescope").extensions.file_browser.actions
 
 		local select_and_cd = function(prompt_bufnr)
 			local entry = action_state.get_selected_entry()
@@ -62,28 +61,12 @@ return {
 							["<CR>"] = select_and_cd,
 							["<C-j>"] = actions.toggle_selection + actions.move_selection_worse,
 							["<C-c>"] = actions.close,
-							["<C-h>"] = fb_actions.goto_parent_dir,
-							["<C-l>"] = fb_actions.change_cwd,
-							["<C-n>"] = fb_actions.create,
-							["<C-r>"] = fb_actions.rename,
-							["<C-d>"] = fb_actions.remove,
-							["<C-y>"] = fb_actions.copy,
-							["<C-m>"] = fb_actions.move,
-							["<C-.>"] = fb_actions.toggle_hidden,
 						},
 						["n"] = {
 							["<Tab>"] = select_and_cd,
 							["<CR>"] = select_and_cd,
 							["q"] = actions.close,
-							["h"] = fb_actions.goto_parent_dir,
 							["l"] = actions.select_default,
-							["c"] = fb_actions.change_cwd,
-							["n"] = fb_actions.create,
-							["r"] = fb_actions.rename,
-							["d"] = fb_actions.remove,
-							["y"] = fb_actions.copy,
-							["m"] = fb_actions.move,
-							["."] = fb_actions.toggle_hidden,
 						},
 					},
 				}),
