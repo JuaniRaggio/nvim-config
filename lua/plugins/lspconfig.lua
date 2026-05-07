@@ -86,7 +86,37 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls" })
+			vim.lsp.config("ts_ls", {
+				capabilities = capabilities,
+				settings = {
+					typescript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+						},
+					},
+					javascript = {
+						inlayHints = {
+							includeInlayParameterNameHints = "all",
+							includeInlayFunctionParameterTypeHints = true,
+							includeInlayVariableTypeHints = true,
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("volar", {
+				capabilities = capabilities,
+				filetypes = { "vue" },
+				init_options = {
+					vue = {
+						hybridMode = false,
+					},
+				},
+			})
+
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls", "ts_ls", "volar" })
 		end,
 	},
 }
