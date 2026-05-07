@@ -10,7 +10,7 @@ vim.keymap.set("n", "<leader>bk", "<CMD>bdelete<CR>", { desc = "Kill buffer" })
 vim.keymap.set("n", "<leader>fm", ":Telescope man_pages<CR>")
 vim.keymap.set("n", "<leader>fr", ":Telescope resume<CR>")
 vim.keymap.set("n", "<leader>ft", function()
-	require("conform").format({ async = true, lsp_format = "fallback" })
+	vim.lsp.buf.format({ async = true })
 end, { desc = "Format buffer" })
 
 -- LSP keymaps
