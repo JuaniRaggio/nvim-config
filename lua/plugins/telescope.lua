@@ -51,6 +51,48 @@ return {
 			end
 		end
 
+		-- Para file_browser: abre con sistema si es binario, sino cd si es directorio
+		local fb_open_with_system_or_cd = function(prompt_bufnr)
+			local entry = action_state.get_selected_entry()
+			if not entry then
+				return
+			end
+
+			local filepath = entry.path or entry.filename
+			if not filepath then
+				return
+			end
+
+			-- Si es directorio, hacer cd
+			if entry.Path and entry.Path:is_dir() then
+				vim.fn.chdir(entry.Path:absolute())
+				actions.select_default(prompt_bufnr)
+				return
+			end
+
+			-- Si es archivo binario, abrir con sistema
+			local system_open_extensions = {
+				"pdf", "PDF",
+				"png", "jpg", "jpeg", "gif", "bmp", "webp", "PNG", "JPG", "JPEG",
+				"mp4", "mov", "avi", "mkv", "webm", "MP4", "MOV",
+				"doc", "docx", "xls", "xlsx", "ppt", "pptx",
+			}
+
+			local extension = filepath:match("^.+%.(.+)$")
+			if extension then
+				for _, ext in ipairs(system_open_extensions) do
+					if extension == ext then
+						actions.close(prompt_bufnr)
+						vim.fn.jobstart({ "open", filepath }, { detach = true })
+						return
+					end
+				end
+			end
+
+			-- Si es archivo normal, abrir en Neovim
+			actions.select_default(prompt_bufnr)
+		end
+
 		local select_and_cd = function(prompt_bufnr)
 			local entry = action_state.get_selected_entry()
 			if entry and entry.Path and entry.Path:is_dir() then
@@ -107,15 +149,15 @@ return {
 					mappings = {
 						["i"] = {
 							["<Tab>"] = select_and_cd,
-							["<CR>"] = select_and_cd,
+							["<CR>"] = fb_open_with_system_or_cd,
 							["<C-j>"] = actions.toggle_selection + actions.move_selection_worse,
 							["<C-c>"] = actions.close,
 						},
 						["n"] = {
 							["<Tab>"] = select_and_cd,
-							["<CR>"] = select_and_cd,
+							["<CR>"] = fb_open_with_system_or_cd,
 							["q"] = actions.close,
-							["l"] = actions.select_default,
+							["l"] = fb_open_with_system_or_cd,
 						},
 					},
 				}),
