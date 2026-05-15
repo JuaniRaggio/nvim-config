@@ -11,6 +11,46 @@ return {
 		local actions = require("telescope.actions")
 		local action_state = require("telescope.actions.state")
 
+		-- Abre archivos binarios (PDF, imagenes, videos) con el visor del sistema
+		local open_with_system = function(prompt_bufnr)
+			local entry = action_state.get_selected_entry()
+			if not entry then
+				return
+			end
+
+			local filepath = entry.path or entry.filename
+			if not filepath then
+				return
+			end
+
+			-- Extensiones que se abren con el visor del sistema
+			local system_open_extensions = {
+				"pdf", "PDF",
+				"png", "jpg", "jpeg", "gif", "bmp", "webp", "PNG", "JPG", "JPEG",
+				"mp4", "mov", "avi", "mkv", "webm", "MP4", "MOV",
+				"doc", "docx", "xls", "xlsx", "ppt", "pptx",
+			}
+
+			local extension = filepath:match("^.+%.(.+)$")
+			local should_open_externally = false
+
+			if extension then
+				for _, ext in ipairs(system_open_extensions) do
+					if extension == ext then
+						should_open_externally = true
+						break
+					end
+				end
+			end
+
+			if should_open_externally then
+				actions.close(prompt_bufnr)
+				vim.fn.jobstart({ "open", filepath }, { detach = true })
+			else
+				actions.select_default(prompt_bufnr)
+			end
+		end
+
 		local select_and_cd = function(prompt_bufnr)
 			local entry = action_state.get_selected_entry()
 			if entry and entry.Path and entry.Path:is_dir() then
@@ -37,6 +77,15 @@ return {
 		telescope.setup({
 			defaults = vim.tbl_extend("force", ivy_opts, {
 				disable_devicons = true,
+				mappings = {
+					i = {
+						["<CR>"] = open_with_system,
+					},
+					n = {
+						["<CR>"] = open_with_system,
+						["l"] = open_with_system,
+					},
+				},
 			}),
 			pickers = {
 				colorscheme = vim.tbl_extend("force", ivy_opts, {
