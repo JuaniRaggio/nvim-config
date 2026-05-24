@@ -2,14 +2,35 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope-file-browser.nvim",
-		"nvim-telescope/telescope-ui-select.nvim",
+		{ "nvim-telescope/telescope-file-browser.nvim" },
+		{ "nvim-telescope/telescope-ui-select.nvim" },
+	},
+	cmd = "Telescope",
+	keys = {
+		-- File navigation
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+		{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+		{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
+		{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume Last Picker" },
+
+		-- Documentation
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+		{ "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+
+		-- UI
+		{ "<leader>th", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
 	},
 
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 		local action_state = require("telescope.actions.state")
+
+		-- Prevenir errores de mouse_click si no existe
+		if not actions.mouse_click then
+			actions.mouse_click = function() end
+		end
 
 		-- Abre archivos binarios (PDF, imagenes, videos) con el visor del sistema
 		local open_with_system = function(prompt_bufnr)
@@ -164,7 +185,8 @@ return {
 			},
 		})
 
-		telescope.load_extension("file_browser")
-		telescope.load_extension("ui-select")
+		-- Load extensions with error handling
+		pcall(telescope.load_extension, "file_browser")
+		pcall(telescope.load_extension, "ui-select")
 	end,
 }
