@@ -37,8 +37,21 @@ vim.cmd([[
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Git merge conflict helpers
--- Estos solo funcionan cuando estas en un merge conflict con :Gdiffsplit!
-vim.keymap.set("n", "]c", "]c", { desc = "Next conflict" })
-vim.keymap.set("n", "[c", "[c", { desc = "Prev conflict" })
+-- ]c / [c - navegar entre conflicts DENTRO del archivo actual
+vim.keymap.set("n", "]c", "]c", { desc = "Next conflict (in file)" })
+vim.keymap.set("n", "[c", "[c", { desc = "Prev conflict (in file)" })
+
+-- ]x / [x - navegar entre ARCHIVOS con conflicts
+vim.keymap.set("n", "]x", function()
+	vim.cmd("cnext")
+	vim.cmd("normal! zz")
+end, { desc = "Next conflict file" })
+
+vim.keymap.set("n", "[x", function()
+	vim.cmd("cprev")
+	vim.cmd("normal! zz")
+end, { desc = "Prev conflict file" })
+
+-- Helpers para aceptar versiones en merge
 vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", { desc = "Get from HEAD (left)" })
 vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", { desc = "Get from MERGE (right)" })
