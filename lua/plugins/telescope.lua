@@ -161,7 +161,17 @@ return {
 			},
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown(),
+					require("telescope.themes").get_dropdown({
+					mappings = {
+						i = {
+							["<CR>"] = actions.select_default,
+						},
+						n = {
+							["<CR>"] = actions.select_default,
+							["l"] = actions.select_default,
+						},
+					},
+				}),
 				},
 				file_browser = vim.tbl_extend("force", ivy_opts, {
 					hijack_netrw = true,
