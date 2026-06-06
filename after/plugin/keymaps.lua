@@ -35,3 +35,10 @@ vim.cmd([[
   autocmd FileType undotree setlocal winwidth=52
 ]])
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- Git merge conflict helpers
+-- Estos solo funcionan cuando estas en un merge conflict con :Gdiffsplit!
+vim.keymap.set("n", "]c", "]c", { desc = "Next conflict" })
+vim.keymap.set("n", "[c", "[c", { desc = "Prev conflict" })
+vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", { desc = "Get from HEAD (left)" })
+vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", { desc = "Get from MERGE (right)" })
