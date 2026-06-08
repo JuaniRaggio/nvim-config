@@ -140,17 +140,29 @@ return {
 		telescope.setup({
 			defaults = vim.tbl_extend("force", ivy_opts, {
 				disable_devicons = true,
-				mappings = {
-					i = {
-						["<CR>"] = open_with_system,
-					},
-					n = {
-						["<CR>"] = open_with_system,
-						["l"] = open_with_system,
-					},
-				},
+				-- Sin mappings globales - cada picker define los suyos
 			}),
 			pickers = {
+				-- Pickers de archivos usan open_with_system
+				find_files = {
+					mappings = {
+						i = { ["<CR>"] = open_with_system },
+						n = { ["<CR>"] = open_with_system, ["l"] = open_with_system },
+					},
+				},
+				live_grep = {
+					mappings = {
+						i = { ["<CR>"] = open_with_system },
+						n = { ["<CR>"] = open_with_system, ["l"] = open_with_system },
+					},
+				},
+				buffers = {
+					mappings = {
+						i = { ["<CR>"] = open_with_system },
+						n = { ["<CR>"] = open_with_system, ["l"] = open_with_system },
+					},
+				},
+				-- Resto de pickers usan comportamiento por defecto
 				colorscheme = vim.tbl_extend("force", ivy_opts, {
 					color_devicons = true,
 					enable_preview = true,
