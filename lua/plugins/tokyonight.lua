@@ -30,18 +30,4 @@ return {
       hl.TelescopeSelectionCaret = { bg = c.bg_highlight, fg = c.cyan }
     end,
   },
-  config = function(_, opts)
-    require("tokyonight").setup(opts)
-    -- Esquema minimalista (scopeado a tokyonight, no toca otros temas)
-    require("miconfignvim.minimal").setup("tokyonight*", {
-      fg      = "#c0caf5",
-      comment = "#565f89",
-      blue    = "#7aa2f7",
-      cyan    = "#7dcfff",
-      green   = "#9ece6a",
-      yellow  = "#e0af68",
-      subtle  = "#3b4261",
-      sel_bg  = "#292e42",
-    })
-  end,
 }
