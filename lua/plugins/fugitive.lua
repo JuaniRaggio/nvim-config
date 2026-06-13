@@ -3,7 +3,7 @@ return {
 	cmd = "Git",
 	keys = {
 		-- Git status (interactive)
-		{ "<leader>gs", "<cmd>Git<cr>", desc = "Git status" },
+		{ "<leader>gs", "<cmd>Git<cr><cmd>only<cr>", desc = "Git status" },
 
 		-- Commits
 		{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Git commit" },

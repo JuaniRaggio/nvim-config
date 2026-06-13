@@ -8,76 +8,28 @@ vim.o.grepprg = "rg --vimgrep --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 
 vim.o.background = "dark"
-vim.cmd("colorscheme tokyonight-storm")
 
--- Aplicar highlights personalizados minimalistas
-local function apply_minimal_colors()
-  -- Colores Tokyo Night Storm
-  local fg        = "#c0caf5"  -- foreground principal
-  local comment   = "#565f89"  -- comentarios
-  local blue      = "#7aa2f7"  -- funciones (marcan flujo)
-  local cyan      = "#7dcfff"  -- strings
-  local green     = "#9ece6a"  -- keywords
-  local yellow    = "#e0af68"  -- tipos
-  local subtle    = "#3b4261"  -- puntuacion, delimitadores
-
-  -- MINIMALISTA: la mayoria del codigo en color base
-  vim.api.nvim_set_hl(0, "Normal", { fg = fg, bg = "NONE" })
-  vim.api.nvim_set_hl(0, "Identifier", { fg = fg })
-  vim.api.nvim_set_hl(0, "Variable", { fg = fg })
-  vim.api.nvim_set_hl(0, "Operator", { fg = fg })
-  vim.api.nvim_set_hl(0, "Delimiter", { fg = subtle })
-
-  -- FUNCIONES: blue + bold (para ver flujo de ejecucion)
-  vim.api.nvim_set_hl(0, "Function", { fg = blue, bold = true })
-  vim.api.nvim_set_hl(0, "@function", { fg = blue, bold = true })
-  vim.api.nvim_set_hl(0, "@function.call", { fg = blue, bold = true })
-  vim.api.nvim_set_hl(0, "@method", { fg = blue, bold = true })
-  vim.api.nvim_set_hl(0, "@method.call", { fg = blue, bold = true })
-
-  -- KEYWORDS: green (sin bold para que sea mas sutil)
-  vim.api.nvim_set_hl(0, "Keyword", { fg = green })
-  vim.api.nvim_set_hl(0, "@keyword", { fg = green })
-  vim.api.nvim_set_hl(0, "@keyword.function", { fg = green })
-  vim.api.nvim_set_hl(0, "@keyword.return", { fg = green })
-
-  -- TIPOS: yellow + bold (para ver declaraciones)
-  vim.api.nvim_set_hl(0, "Type", { fg = yellow, bold = true })
-  vim.api.nvim_set_hl(0, "@type", { fg = yellow, bold = true })
-  vim.api.nvim_set_hl(0, "@type.builtin", { fg = yellow, bold = true })
-
-  -- STRINGS: cyan (sutil)
-  vim.api.nvim_set_hl(0, "String", { fg = cyan })
-  vim.api.nvim_set_hl(0, "@string", { fg = cyan })
-
-  -- COMENTARIOS: gris + italic
-  vim.api.nvim_set_hl(0, "Comment", { fg = comment, italic = true })
-  vim.api.nvim_set_hl(0, "@comment", { fg = comment, italic = true })
-
-  -- PUNTUACION: sutil
-  vim.api.nvim_set_hl(0, "@punctuation", { fg = subtle })
-  vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = subtle })
-  vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = subtle })
-
-  -- Numeros de linea
-  vim.api.nvim_set_hl(0, "LineNr", { fg = comment })
-  vim.api.nvim_set_hl(0, "CursorLineNr", { fg = fg, bold = true })
-
-  -- Fondo transparente
-  vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-  vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
-  vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
-
-  -- TELESCOPE: seleccion visible
-  vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = fg, bg = "#292e42", bold = true })
-  vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = yellow, bg = "#292e42", bold = true })
+-- Transparencia global: respetar SIEMPRE el fondo/opacidad de la terminal (iTerm),
+-- sin importar el colorscheme. Limpia el bg (conservando fg) en cada cambio de tema.
+local function enable_transparency()
+  local groups = {
+    "Normal", "NormalNC", "NormalFloat", "FloatBorder",
+    "SignColumn", "EndOfBuffer", "LineNr", "CursorLineNr",
+    "StatusLine", "StatusLineNC", "VertSplit", "WinSeparator",
+    "FoldColumn", "MsgArea",
+  }
+  for _, group in ipairs(groups) do
+    local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+    hl.bg = nil
+    hl.ctermbg = nil
+    vim.api.nvim_set_hl(0, group, hl)
+  end
 end
 
-apply_minimal_colors()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = apply_minimal_colors,
-})
+vim.cmd("colorscheme bathory")
+enable_transparency()
 
 -- Comentado: estos highlights son para everforest
 -- local function apply_custom_highlights()
