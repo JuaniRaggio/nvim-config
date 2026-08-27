@@ -28,33 +28,8 @@ end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.cmd("colorscheme solarized")
+vim.cmd("colorscheme mayhem")
 enable_transparency()
-
--- Comentado: estos highlights son para everforest
--- local function apply_custom_highlights()
---   vim.api.nvim_set_hl(0, "TermNormal", { bg = "NONE", fg = "NONE" })
---   vim.api.nvim_set_hl(0, "TermNormalNC", { bg = "NONE", fg = "NONE" })
---   vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
---   vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
---   vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
---   vim.api.nvim_set_hl(0, "VertSplit", { bg = "NONE" })
---   vim.api.nvim_set_hl(0, "LineNr", { fg = "#6a6a5b" })
---   vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#d3c6aa", bold = true })
---   vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6a6a5b" })
---   vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6a6a5b" })
---
---   -- Doxygen highlight groups
---   vim.api.nvim_set_hl(0, "DoxygenTag", { fg = "#e69875", bold = true })
---   vim.api.nvim_set_hl(0, "DoxygenParam", { fg = "#d3c6aa", bold = true })
---   vim.api.nvim_set_hl(0, "DoxygenBrief", { fg = "#a7c080", italic = true })
--- end
---
--- apply_custom_highlights()
---
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   callback = apply_custom_highlights,
--- })
 
 -- Doc comments: resaltar tags y parametros via matchadd
 -- C/C++/Java/Vue: estilo Doxygen/JSDoc (@param, @return, etc.)
