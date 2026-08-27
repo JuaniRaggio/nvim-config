@@ -28,7 +28,7 @@ end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.cmd("colorscheme mayhem")
+vim.cmd("colorscheme solarized")
 enable_transparency()
 
 -- Comentado: estos highlights son para everforest
