@@ -7,8 +7,6 @@ require("miconfignvim.lazy")
 vim.o.grepprg = "rg --vimgrep --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 
-vim.o.background = "dark"
-
 -- Transparencia global: respetar SIEMPRE el fondo/opacidad de la terminal (iTerm),
 -- sin importar el colorscheme. Limpia el bg (conservando fg) en cada cambio de tema.
 local function enable_transparency()
@@ -28,7 +26,7 @@ end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.cmd("colorscheme mayhem")
+vim.cmd("colorscheme darkthrone")
 enable_transparency()
 
 -- Doc comments: resaltar tags y parametros via matchadd

@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    theme = "neo",
-    variant = "winter",
+    theme = "solarized",
+    variant = "winter", -- "spring" | "summer" | "autumn" | "winter" (default)
   },
 }

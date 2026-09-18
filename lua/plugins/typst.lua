@@ -10,9 +10,7 @@ return {
 
       -- Custom format string to open the output link provided with %s
       -- Example: open_cmd = 'firefox %s -P typst-preview --class typst-preview'
-      -- Abre el preview en una ventana limpia de Edge (modo app, sin pestañas
-      -- ni toolbar). -n fuerza una instancia nueva.
-      open_cmd = 'open -na "Microsoft Edge" --args --app=%s',
+      open_cmd = 'open -na "LibreWolf" --args --new-window %s',
 
       -- Custom port to open the preview server. Default is random.
       -- Example: port = 8000

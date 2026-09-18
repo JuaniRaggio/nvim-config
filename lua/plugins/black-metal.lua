@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require("black-metal").setup({
-      theme = "mayhem", -- bathory | burzum | gorgoroth | immortal | marduk | mayhem | nile | venom | darkthrone | emperor | ...
+      theme = "darkthrone", -- bathory | burzum | gorgoroth | immortal | marduk | mayhem | nile | venom | darkthrone | emperor | ...
       variant = "dark",
       transparent = true,
       term_colors = true,
