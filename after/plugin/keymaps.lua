@@ -1,5 +1,5 @@
 -- File explorer
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
+vim.keymap.set("n", "<leader>e", "<CMD>Ex<CR>")
 
 -- Buffer management
 vim.keymap.set("n", "<leader>bk", "<CMD>bdelete<CR>", { desc = "Kill buffer" })
