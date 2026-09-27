@@ -123,18 +123,12 @@ return {
 		end
 
 		local ivy_opts = {
-			layout_strategy = "bottom_pane",
-			layout_config = {
-				height = 999,
-				prompt_position = "top",
-			},
-			sorting_strategy = "ascending",
-			border = true,
-			borderchars = {
-				prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-				results = { " " },
-				preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			},
+                        layout_strategy = "vertical",
+                        layout_config = {
+                                height = vim.o.lines,
+                                width = vim.o.columns,
+                                preview_height = 0.8,
+                        },
 		}
 
 		telescope.setup({
