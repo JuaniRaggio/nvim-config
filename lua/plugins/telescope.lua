@@ -7,18 +7,15 @@ return {
 	},
 	cmd = "Telescope",
 	keys = {
-		-- File navigation
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 		{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
 		{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
 		{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 		{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume Last Picker" },
 
-		-- Documentation
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
 		{ "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
 
-		-- UI
 		{ "<leader>th", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
 	},
 
@@ -127,17 +124,15 @@ return {
                         layout_config = {
                                 height = vim.o.lines,
                                 width = vim.o.columns,
-                                preview_height = 0.8,
+                                preview_height = 0.7,
                         },
 		}
 
 		telescope.setup({
 			defaults = vim.tbl_extend("force", ivy_opts, {
 				disable_devicons = true,
-				-- Sin mappings globales - cada picker define los suyos
 			}),
 			pickers = {
-				-- Pickers de archivos usan open_with_system
 				find_files = {
 					mappings = {
 						i = { ["<CR>"] = open_with_system },
@@ -156,7 +151,6 @@ return {
 						n = { ["<CR>"] = open_with_system, ["l"] = open_with_system },
 					},
 				},
-				-- Resto de pickers usan comportamiento por defecto
 				colorscheme = vim.tbl_extend("force", ivy_opts, {
 					color_devicons = true,
 					enable_preview = true,
@@ -201,7 +195,6 @@ return {
 			},
 		})
 
-		-- Load extensions with error handling
 		pcall(telescope.load_extension, "file_browser")
 		pcall(telescope.load_extension, "ui-select")
 	end,

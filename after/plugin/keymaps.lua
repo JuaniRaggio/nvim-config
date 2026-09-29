@@ -1,15 +1,11 @@
--- File explorer
-vim.keymap.set("n", "<leader>e", "<CMD>Ex<CR>")
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
 
--- Buffer management
 vim.keymap.set("n", "<leader>bk", "<CMD>bdelete<CR>", { desc = "Kill buffer" })
 
--- Formatting
 vim.keymap.set("n", "<leader>ft", function()
 	vim.lsp.buf.format({ async = true })
 end, { desc = "Format buffer" })
 
--- LSP keymaps (native, fast jumps)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
 vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "Show References" })
@@ -29,13 +25,6 @@ vim.keymap.set("v", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
-vim.g.undotree_WindowLayout = 3
-
-vim.cmd([[
-  autocmd FileType undotree setlocal winwidth=52
-]])
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-
 -- Git merge conflict helpers
 -- ]c / [c - navegar entre conflicts DENTRO del archivo actual
 vim.keymap.set("n", "]c", "]c", { desc = "Next conflict (in file)" })
@@ -52,6 +41,5 @@ vim.keymap.set("n", "[x", function()
 	vim.cmd("normal! zz")
 end, { desc = "Prev conflict file" })
 
--- Helpers para aceptar versiones en merge
 vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", { desc = "Get from HEAD (left)" })
 vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", { desc = "Get from MERGE (right)" })
