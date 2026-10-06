@@ -1,25 +1,27 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "main",
 	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter").setup({
-			ensure_installed = {
-				"c",
-				"cpp",
-				"python",
-				"lua",
-				"vim",
-				"vimdoc",
-				"java",
-				"markdown",
-				"markdown_inline",
-				"typst",
-				"elixir",
-				"heex",
-				"eex_elixir",
-				"sql",
-			},
-			auto_install = true,
+		-- API de la rama main: install() reemplaza a ensure_installed/auto_install
+		require("nvim-treesitter").install({
+			"c",
+			"cpp",
+			"python",
+			"lua",
+			"vim",
+			"vimdoc",
+			"java",
+			"markdown",
+			"markdown_inline",
+			"typst",
+			"elixir",
+			"heex",
+			"eex",
+			"sql",
+			"javascript",
+			"typescript",
+			"tsx",
 		})
 		-- Iniciar treesitter highlight automaticamente
 		vim.api.nvim_create_autocmd("FileType", {

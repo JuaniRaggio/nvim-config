@@ -36,8 +36,6 @@ vim.opt.cmdheight = 0
 vim.diagnostic.config({
   float = { border = "rounded" },
 })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
@@ -46,7 +44,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    local log = vim.lsp.get_log_path()
+    local log = vim.lsp.log.get_filename()
     local f = io.open(log, "w")
     if f then f:close() end
   end,

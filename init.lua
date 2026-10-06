@@ -22,11 +22,13 @@ local function enable_transparency()
     hl.ctermbg = nil
     vim.api.nvim_set_hl(0, group, hl)
   end
+  -- Borde visible para los floats (hover con K, diagnosticos, etc.):
+  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#8a8a8a", bg = "NONE", ctermfg = 245, ctermbg = "NONE" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.cmd("colorscheme darkthrone")
+vim.cmd("colorscheme mayhem")
 enable_transparency()
 
 -- Doc comments: resaltar tags y parametros via matchadd

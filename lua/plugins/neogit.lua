@@ -10,7 +10,7 @@ return {
         keys = {
                 {
                         "<leader>gg",
-                        "<cmd>Neogit kind=replace cwd=%:p:h<cr>",
+                        "<cmd>Neogit kind=replace<cr>",
                         desc = "Show Neogit UI"
                 }
         }
