@@ -13,7 +13,7 @@ return {
         },
 
         keys = {
-                { "<leader>cc", "<CMD>Compile<CR>",  desc = "Compile" },
+                { "<leader>cc", "<CMD>botright Compile<CR>",  desc = "Compile" },
                 { "]e",         "<CMD>NextError<CR>", desc = "Next compile error" },
                 { "[e",         "<CMD>PrevError<CR>", desc = "Prev compile error" },
         },
