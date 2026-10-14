@@ -1,21 +1,24 @@
-require("image").setup({
+return {
+        "3rd/image.nvim",
+        ft = { "markdown", "vimwiki", "asciidoc", "adoc", "norg", "rst", "typst" }, -- cargar solo en filetypes con imagenes
+        opts = {
         backend = "kitty",
         processor = "magick_cli",
         integrations = {
                 markdown = {
                         enabled = true,
-                        clear_in_insert_mode = false,
+                        clear_in_insert_mode = true,   -- limpiar imagen mientras se escribe = sin lag por caracter
                         download_remote_images = true,
-                        only_render_image_at_cursor = false,
+                        only_render_image_at_cursor = true, -- renderizar solo la imagen bajo el cursor
                         only_render_image_at_cursor_mode = "popup", -- or "inline"
                         floating_windows = false,
                         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
                 },
                 asciidoc = {
                         enabled = true,
-                        clear_in_insert_mode = false,
+                        clear_in_insert_mode = true,
                         download_remote_images = true,
-                        only_render_image_at_cursor = false,
+                        only_render_image_at_cursor = true,
                         only_render_image_at_cursor_mode = "popup",
                         floating_windows = false,
                         filetypes = { "asciidoc", "adoc" },
@@ -47,6 +50,7 @@ require("image").setup({
         window_overlap_clear_enabled = false,                                         -- toggles images when windows are overlapped
         window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "snacks_notif", "scrollview", "scrollview_sign" },
         editor_only_render_when_focused = false,                                      -- auto show/hide images when the editor gains/looses focus
-        tmux_show_only_in_active_window = false,                                      -- auto show/hide images in the correct Tmux window (needs visual-activity off)
+        tmux_show_only_in_active_window = true,                                       -- auto show/hide images in the correct Tmux window (needs visual-activity off)
         hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- render image files as images when opened
-})
+        },
+}
