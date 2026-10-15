@@ -117,6 +117,21 @@ return {
 			})
 
 			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls", "ts_ls", "volar" })
+
+			-- Desactivar el highlighting de semantic tokens del LSP: pisaba a
+			-- treesitter y rompia el scheme (clangd colorea `auto` como el tipo
+			-- deducido y los tipos custom como @lsp.type.class -> Type, ademas del
+			-- parpadeo "se pinta y se apaga"). Con esto treesitter es la unica
+			-- fuente de colores: auto -> @type.builtin (ambar), tipos custom ->
+			-- @type (celeste), consistente y sin parpadeo.
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if client then
+						client.server_capabilities.semanticTokensProvider = nil
+					end
+				end,
+			})
 		end,
 	},
 }

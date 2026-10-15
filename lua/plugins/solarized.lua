@@ -27,7 +27,8 @@ return {
     -- on_colors de arriba. Los hex son explicitos para no depender de la paleta.
     on_highlights = function(_, _)
       local kw = "#859900"   -- keywords: verde
-      local ty = "#b58900"   -- tipos de datos custom: amarillo
+      local ty = "#b58900"   -- tipos builtin (int/double): amarillo
+      local tyc = "#5fb3e6"  -- tipos de datos custom: celeste
       local str = "#2aa198"  -- strings: cyan
       local cmt = "#6c9bd0"  -- comentarios: azul claro (mas visible que el gris)
       local err = "#dc322f"  -- errores: rojo
@@ -48,9 +49,10 @@ return {
         Conditional = { link = "@keyword" },
         Repeat = { link = "@keyword" },
 
-        -- tipos de datos (custom en amarillo; builtin tipo int/double tambien
-        -- en amarillo pero en bold, para distinguirlos de los custom)
-        ["@type"] = { fg = ty },
+        -- tipos de datos: custom en celeste, builtin (int/double) en ambar bold.
+        -- Treesitter es la unica fuente (semantic tokens del LSP desactivados en
+        -- lspconfig.lua), asi que estos grupos mandan sin que el LSP los pise.
+        ["@type"] = { fg = tyc },
         ["@type.definition"] = { link = "@type" },
         ["@type.builtin"] = { fg = ty, bold = true },
 
