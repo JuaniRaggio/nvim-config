@@ -10,6 +10,20 @@ return {
         comments = "italic",
         keywords = "none",
       },
+      -- El gris de comentarios de darkthrone (#505050) es casi ilegible, y
+      -- subirlo a la banda media choca con el codigo (func #888, keyword #999,
+      -- operator #9b99a3, number #aaa). Le damos un azul saturado (estilo
+      -- solarized): el codigo es gris neutro, asi que necesitamos tono fuerte
+      -- para que se despegue (un azul apenas desaturado se ve casi gris).
+      -- Legible y combina con el fondo solarized de kitty.
+      colors = {
+        comment = "#6f9bd1",
+      },
+      -- Los blockquotes de markdown son prosa (bodies de admonitions), asi que
+      -- los dejamos un paso mas claros que los comentarios de codigo.
+      highlights = {
+        ["@markup.quote.markdown"] = { fg = "#b0b0b0" },
+      },
     })
 
     local function set_diff_highlights()

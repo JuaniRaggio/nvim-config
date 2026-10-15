@@ -28,7 +28,7 @@ end
 
 vim.api.nvim_create_autocmd("ColorScheme", { callback = enable_transparency })
 
-vim.cmd("colorscheme citylights")
+vim.cmd("colorscheme darkthrone")
 enable_transparency()
 
 -- Doc comments: resaltar tags y parametros via matchadd

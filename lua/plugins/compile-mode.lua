@@ -122,9 +122,6 @@ return {
                         -- Clear all environment variables for each command.
                         -- :h compile-mode.clear_environment
                         clear_environment = false,
-                        -- Fix compilation for plugins like `nvim-cmp`.
-                        -- :h compile-mode.input_word_completion
-                        input_word_completion = false,
                         -- Hide the compliation buffer.
                         -- :h compile-mode.hidden_buffer
                         hidden_buffer = false,
