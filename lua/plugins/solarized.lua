@@ -46,14 +46,20 @@ return {
         ["@keyword.import"] = { link = "@keyword" },
         ["@conditional"] = { link = "@keyword" },
         ["@repeat"] = { link = "@keyword" },
-        Keyword = { link = "@keyword" },
-        Conditional = { link = "@keyword" },
-        Repeat = { link = "@keyword" },
+        -- OJO: los grupos legacy (Keyword/Operator/String...) NO deben linkear a
+        -- los @grupos de treesitter. Neovim ya linkea al reves por defecto
+        -- (@keyword -> Keyword, @operator -> Operator, @string -> String), asi
+        -- que linkear de vuelta crea un ciclo (@operator <-> Operator) que el
+        -- resolvedor recursivo de solarized.nvim sigue para siempre -> nvim se
+        -- cuelga al cargar el colorscheme. Por eso van con fg explicito.
+        Keyword = { fg = kw, bold = true },
+        Conditional = { fg = kw, bold = true },
+        Repeat = { fg = kw, bold = true },
 
         -- operadores (+ - * / = << -> && etc): verde normal, para distinguirlos
         -- de las keywords (verde bold) sin agregar un color nuevo
         ["@operator"] = { fg = kw },
-        Operator = { link = "@operator" },
+        Operator = { fg = kw },
 
         -- brackets delimitadores ()[]{} y <> de templates: celeste claro, para
         -- seguir los scopes. Los <> de comparacion quedan como @operator (verde).
@@ -74,8 +80,8 @@ return {
         ["@string.documentation"] = { link = "@string" },
         ["@string.regexp"] = { link = "@string" },
         ["@character"] = { link = "@string" },
-        String = { link = "@string" },
-        Character = { link = "@string" },
+        String = { fg = str },
+        Character = { fg = str },
 
         -- comentarios en color notable
         ["@comment"] = { fg = cmt, italic = true },
