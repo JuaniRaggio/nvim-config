@@ -33,6 +33,7 @@ return {
       local cmt = "#6c9bd0"  -- comentarios: azul claro (mas visible que el gris)
       local err = "#dc322f"  -- errores: rojo
       local warn = "#cb4b16" -- warnings: naranja
+      local brk = "#a8d1ff"  -- brackets ()[]{}<> delimitadores: celeste claro
       return {
         -- keywords
         ["@keyword"] = { fg = kw, bold = true },
@@ -48,6 +49,18 @@ return {
         Keyword = { link = "@keyword" },
         Conditional = { link = "@keyword" },
         Repeat = { link = "@keyword" },
+
+        -- operadores (+ - * / = << -> && etc): verde normal, para distinguirlos
+        -- de las keywords (verde bold) sin agregar un color nuevo
+        ["@operator"] = { fg = kw },
+        Operator = { link = "@operator" },
+
+        -- brackets delimitadores ()[]{} y <> de templates: celeste claro, para
+        -- seguir los scopes. Los <> de comparacion quedan como @operator (verde).
+        ["@punctuation.bracket"] = { fg = brk },
+
+        -- al pararse sobre un bracket, su par se resalta en amarillo (bold)
+        MatchParen = { fg = "#e4c000", bold = true },
 
         -- tipos de datos: custom en celeste, builtin (int/double) en ambar bold.
         -- Treesitter es la unica fuente (semantic tokens del LSP desactivados en
