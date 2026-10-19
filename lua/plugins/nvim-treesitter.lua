@@ -22,6 +22,8 @@ return {
 			"javascript",
 			"typescript",
 			"tsx",
+			"ocaml",
+			"ocaml_interface",
 		})
 		-- Iniciar treesitter highlight automaticamente
 		vim.api.nvim_create_autocmd("FileType", {

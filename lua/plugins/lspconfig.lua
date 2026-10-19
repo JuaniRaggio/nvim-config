@@ -35,6 +35,10 @@ return {
 				capabilities = capabilities,
 			})
 
+			vim.lsp.config("ocamllsp", {
+				capabilities = capabilities,
+			})
+
 			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 			})
@@ -116,7 +120,7 @@ return {
 				},
 			})
 
-			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls", "ts_ls", "volar" })
+			vim.lsp.enable({ "tinymist", "lua_ls", "clangd", "ocamllsp", "pyright", "solargraph", "gopls", "elixirls", "korean_ls", "sqls", "ts_ls", "volar" })
 
 			-- Desactivar el highlighting de semantic tokens del LSP: pisaba a
 			-- treesitter y rompia el scheme (clangd colorea `auto` como el tipo
